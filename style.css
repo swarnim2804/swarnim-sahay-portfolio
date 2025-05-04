@@ -1,0 +1,452 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    overflow-x: hidden;
+}
+
+/* Background moving name */
+.background-name {
+    position: absolute; /* Change to absolute to confine to hero */
+    top: 40%; 
+    left: 100%; /* Start off-screen to the right */
+    font-size: 10rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: rgba(0, 255, 255, 0.5); /* Translucent cyan */
+    white-space: nowrap;
+    z-index: 1; /* Set behind other text and elements */
+    animation: moveBackgroundName 30s linear infinite; /* Looping animation */
+}
+
+@keyframes moveBackgroundName {
+    0% {
+        transform: translateX(100%); /* Start fully off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* End fully off-screen to the left */
+    }
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: rgba(79, 164, 244, 0.8);
+    z-index: 999;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #80d0c7;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-image: url('header.jpg'); /* Add your background image */
+    background-size: cover; /* Cover the entire hero section */
+    background-position: center; /* Center the image */
+}
+
+/* Add a translucent overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
+    z-index: 0; /* Set z-index behind text */
+}
+
+h1, p, .profile-picture, .cta {
+    position: relative; /* Position these elements above the overlay */
+    z-index: 1; /* Ensure text is above the background and overlay */
+}
+
+/* Hero Text */
+.hero h1 {
+    font-size: 4rem;
+    opacity: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    opacity: 0;
+}
+
+/* Call to Action Button */
+.cta {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ef476f;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: background 0.3s ease;
+}
+
+.cta:hover {
+    background: #ef767a;
+}
+
+/* Profile Picture in Hero Section */
+.profile-picture {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #ef476f;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Sections */
+section {
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+}
+
+.about-section {
+    background-color: #48cae4; /* Light blue background */
+    color: black; /* Text color */
+    font-size: 1.3em;
+
+}
+
+.projects-section {
+    background-color: #FF4D6D; /* Red background */
+    color: black; /* Text color */
+}
+
+.skills-section {
+    background-color: #48cae4; /* Light blue background */
+    color: black; /* Ensure text color is applied */
+}
+
+.contact-section {
+    background-color: #FF4D6D; /* Red background */
+    color: black; /* Ensure text color is applied */
+}
+
+
+/* Project Cards */
+.project-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    background-image: url(bg2.jpg);
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.footer {
+    background-color: #4fa4f4;
+    color: rgb(71, 70, 70);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #f8f9f9;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+.skills-section {
+    background-color: #48cae4;
+    padding: 80px 20px;
+    color: black;
+    text-align: center;
+}
+
+.skills-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: white;
+}
+
+/* Skills Container for Cards */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the cards */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+.skills-section {
+    background-color: #48cae4;
+    padding: 80px 20px;
+    color: black;
+    text-align: center;
+}
+
+.skills-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: white;
+}
+
+/* Skills Container for Cards */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the cards */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Skill Cards */
+.skill-card {
+    background-image: url(bg2.jpg); /* Translucent card background */
+    color: black;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Fixed width for each card */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #060606;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #000000;
+}
+
+
+.achievements-section {
+    background-color: #FF4D6D;
+    padding: 80px 20px;
+    color: black;
+    text-align: center;
+}
+
+.achievements-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.achievements-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: black;
+}
+
+/* Achievements Card Container */
+.achievements-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+}
+
+/* Achievement Card */
+.achievement-card {
+    background-image: url(bg2.jpg); /* Translucent card background */
+    color: black;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Fixed width for each card */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.achievement-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.achievement-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #0d0c0c;
+}
+h2 {
+    font-size: 2.5rem; /* Font size */
+    font-weight: bold; /* Font weight */
+    color: #ffffff; /* Text color */
+    text-align: center; /* Centered text */
+    margin: 40px 0; /* Margin above and below the heading */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Spacing between letters */
+    position: relative; /* For adding pseudo-elements if needed */
+}
+
+/* Optional: Add a decorative effect (like a bottom border) */
+h2::after {
+    content: ''; /* Empty content for pseudo-element */
+    display: block; /* Block-level element */
+    width: 50px; /* Width of the line */
+    height: 4px; /* Height of the line */
+    background: #ffffff; /* Color of the line */
+    margin: 10px auto; /* Center the line */
+}
+h1 {
+    font-size: 4rem; /* Font size */
+    font-weight: bold; /* Font weight */
+    color: #ffffff; /* Text color */
+    text-align: center; /* Center the text */
+    margin: 40px 0; /* Margin above and below the heading */
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.5), /* White glow */
+        0 0 10px rgba(255, 255, 255, 0.3), /* Larger white glow */
+        0 0 15px rgb(60, 144, 173), /* Blue glow */
+        0 0 20px rgb(22, 124, 157), /* More prominent blue glow */
+        0 0 30px rgb(14, 78, 99), /* Wider blue glow */
+        0 0 40px rgb(13, 49, 61); /* Largest blue glow */
+}
+
+.download-cv {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #f9fafa; /* Soft white background */
+    color: #FF4D6D; /* Vibrant red text */
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    border: 2px solid #FF4D6D; /* Red border for emphasis */
+}
+
+.download-cv:hover {
+    background-color: #f4c4e4; /* Light pink background on hover */
+    color: #fff; /* White text on hover for contrast */
+}
+.project-glimpse {
+    background-color: #f4f4f4; /* Light gray background */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-glimpse:hover {
+    transform: scale(1.03); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.glimpse-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.glimpse-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.glimpse-description {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.glimpse-link {
+    color: #FF4D6D;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.glimpse-link:hover {
+    color: #d93656;
+}
